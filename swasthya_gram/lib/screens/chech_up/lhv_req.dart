@@ -18,14 +18,11 @@ class LHVReq extends StatefulWidget {
 }
 
 class _LHVReqState extends State<LHVReq> {
-  TextEditingController firstname = TextEditingController();
-  TextEditingController lastname = TextEditingController();
-  TextEditingController dateInput = TextEditingController();
-  TextEditingController gender = TextEditingController();
+  TextEditingController alertNotice = TextEditingController();
+  TextEditingController label = TextEditingController();
 
   @override
   void initState() {
-    dateInput.text = ""; //set the initial value of text field
     super.initState();
   }
 
@@ -92,7 +89,7 @@ class _LHVReqState extends State<LHVReq> {
                             height: 47,
                             width: MediaQuery.of(context).size.width * 0.85,
                             child: TextField(
-                              readOnly: true,
+                              controller: alertNotice,
                               cursorHeight: 18,
                               cursorColor: AppColors.primaryColor,
                               style: GoogleFonts.openSans(
@@ -149,7 +146,7 @@ class _LHVReqState extends State<LHVReq> {
                             height: 47,
                             width: MediaQuery.of(context).size.width * 0.85,
                             child: TextField(
-                              controller: gender,
+                              controller: label,
                               cursorHeight: 18,
                               cursorColor: AppColors.primaryColor,
                               readOnly: true,
@@ -257,7 +254,7 @@ class _LHVReqState extends State<LHVReq> {
                                               alignment: Alignment.bottomCenter,
                                               child: FlatButton(
                                                   onPressed: () {
-                                                    gender.text =
+                                                    label.text =
                                                         options[selectedIndex];
                                                     Navigator.pop(context);
                                                   },

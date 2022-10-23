@@ -24,22 +24,25 @@ class CheckUp extends StatefulWidget {
 }
 
 class _CheckUpState extends State<CheckUp> {
-  final CheckUpController checkUpController =
-      Get.put(CheckUpController(aadhar.text));
-
-  TextEditingController firstname = TextEditingController();
-  TextEditingController lastname = TextEditingController();
+  final CheckUpController checkUpController = Get.put(CheckUpController());
+  TextEditingController name = TextEditingController();
   TextEditingController dateInput = TextEditingController();
   TextEditingController gender = TextEditingController();
+  TextEditingController heightFeet = TextEditingController();
+  TextEditingController weight = TextEditingController();
+  TextEditingController patientsProblems = TextEditingController();
+  TextEditingController sideEffects = TextEditingController();
+  TextEditingController patientsCondition = TextEditingController();
+  TextEditingController bp = TextEditingController();
+  TextEditingController hr = TextEditingController();
 
   @override
   void initState() {
-    dateInput.text = ""; //set the initial value of text field
+    //set the initial value of text field
     super.initState();
   }
 
   bool value = false;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,6 +109,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 47,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: name,
                                 readOnly: true,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
@@ -303,6 +307,7 @@ class _CheckUpState extends State<CheckUp> {
                                     width:
                                         MediaQuery.of(context).size.width * 0.4,
                                     child: TextField(
+                                      controller: heightFeet,
                                       cursorHeight: 18,
                                       cursorColor: AppColors.primaryColor,
                                       style: GoogleFonts.openSans(
@@ -414,6 +419,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 47,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: weight,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
                                 style: GoogleFonts.openSans(
@@ -473,6 +479,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 47,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: patientsProblems,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
                                 style: GoogleFonts.openSans(
@@ -530,6 +537,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 47,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: sideEffects,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
                                 style: GoogleFonts.openSans(
@@ -587,6 +595,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 120,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: patientsCondition,
                                 maxLines: 5,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
@@ -645,6 +654,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 47,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: bp,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
                                 style: GoogleFonts.openSans(
@@ -680,19 +690,7 @@ class _CheckUpState extends State<CheckUp> {
                             ),
                           ],
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Center(
-                          child: ElevatedButton.icon(
-                            icon: Icon(Icons.favorite_rounded),
-                            label: Text("Measure BPM"),
-                            onPressed: (() {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => HeartBPM()));
-                            }),
-                          ),
-                        ),
+
                         const SizedBox(
                           height: 15,
                         ),
@@ -715,6 +713,7 @@ class _CheckUpState extends State<CheckUp> {
                               height: 47,
                               width: MediaQuery.of(context).size.width * 0.85,
                               child: TextField(
+                                controller: hr,
                                 cursorHeight: 18,
                                 cursorColor: AppColors.primaryColor,
                                 style: GoogleFonts.openSans(
@@ -749,6 +748,19 @@ class _CheckUpState extends State<CheckUp> {
                               ),
                             ),
                           ],
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Center(
+                          child: ElevatedButton.icon(
+                            icon: Icon(Icons.favorite_rounded),
+                            label: Text("Measure BPM"),
+                            onPressed: (() {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => HeartBPM()));
+                            }),
+                          ),
                         ),
                         SizedBox(
                           height: 10,

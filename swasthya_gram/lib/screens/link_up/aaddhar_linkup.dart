@@ -12,6 +12,7 @@ import 'package:swasthya_gram/screens/chech_up/chech_up.dart';
 import 'package:swasthya_gram/screens/link_up/link_up.dart';
 
 File file = File("your initial file");
+
 TextEditingController aadhar = TextEditingController();
 
 class AadhaarLinkUp extends StatefulWidget {
@@ -71,6 +72,7 @@ class _AadhaarLinkUpState extends State<AadhaarLinkUp> {
                   height: 47,
                   width: MediaQuery.of(context).size.width * 0.85,
                   child: TextField(
+                    controller: aadhar,
                     cursorHeight: 18,
                     cursorColor: AppColors.primaryColor,
                     style: GoogleFonts.openSans(
@@ -111,17 +113,19 @@ class _AadhaarLinkUpState extends State<AadhaarLinkUp> {
             ),
             FlatButton(
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => LinkUp()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => LinkUp(
+                          aadhar: aadhar.text,
+                        )));
               },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   gradient: LinearGradient(
                     colors: <Color>[
-                      Color(0xFF0D47A1),
-                      Color(0xFF1976D2),
-                      Color(0xFF42A5F5),
+                      AppColors.cardcolor,
+                      AppColors.cardcolor,
+                      AppColors.cardcolor,
                     ],
                   ),
                 ),

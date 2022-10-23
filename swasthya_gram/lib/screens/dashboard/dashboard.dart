@@ -371,6 +371,125 @@ class _DashboardState extends State<Dashboard> {
                               ),
                             ),
                           ),
+                          Card(
+                            margin: EdgeInsets.only(left: 10, right: 10),
+                            color: AppColors.cardcolor,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Container(
+                              margin: EdgeInsets.only(left: 10, right: 10),
+                              height: 120,
+                              width: MediaQuery.of(context).size.width,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 15, top: 10, right: 15),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "Health awareness tasks",
+                                          style: GoogleFonts.openSans(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700),
+                                        ),
+                                        Spacer(),
+                                        Text(
+                                          "Show All",
+                                          style: GoogleFonts.openSans(
+                                              fontSize: 14,
+                                              color: Colors.white60,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Colors.white,
+                                          size: 12,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(left: 15, top: 10),
+                                    width: 300,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: LinearProgressIndicator(
+                                        value: ((453).toDouble()) / 1000,
+                                        valueColor: AlwaysStoppedAnimation(
+                                            Colors.white),
+                                        backgroundColor:
+                                            Colors.white.withOpacity(0.2),
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                              padding: EdgeInsets.only(
+                                                  left: 15, top: 0, right: 15),
+                                              child: RichText(
+                                                text: TextSpan(
+                                                  style: GoogleFonts.openSans(
+                                                      fontSize: 15,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: 19.toString(),
+                                                      style:
+                                                          GoogleFonts.openSans(
+                                                              fontSize: 34,
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600),
+                                                    ),
+                                                    TextSpan(
+                                                      text: ' of 25 Tasks Done',
+                                                    ),
+                                                  ],
+                                                ),
+                                              )),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 15, top: 0, right: 15),
+                                            child: Text(
+                                              'Last 1 Month',
+                                              style: GoogleFonts.openSans(
+                                                  fontSize: 14,
+                                                  color: Colors.white60,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Spacer(),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 30),
+                                        child: Icon(
+                                          Icons.run_circle,
+                                          color: Colors.white,
+                                          size: 40,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     )

@@ -82,7 +82,7 @@ String addPatientToJson(AddPatient data) => json.encode(data.toJson());
 class AddPatient {
   AddPatient({
     required this.name,
-    required this.aadhaarNo,
+    required this.aadhaarno,
     required this.dob,
     required this.gender,
     required this.height,
@@ -93,7 +93,7 @@ class AddPatient {
   });
 
   String name;
-  String aadhaarNo;
+  String aadhaarno;
   String dob;
   String gender;
   int height;
@@ -104,7 +104,7 @@ class AddPatient {
 
   factory AddPatient.fromJson(Map<String, dynamic> json) => AddPatient(
         name: json["name"],
-        aadhaarNo: json["aadhaarno"],
+        aadhaarno: json["aadhaarno"],
         dob: json["dob"],
         gender: json["gender"],
         height: json["height"],
@@ -116,7 +116,7 @@ class AddPatient {
 
   Map<String, dynamic> toJson() => {
         "name": name,
-        "aadhaarno": aadhaarNo,
+        "aadhaarno": aadhaarno,
         "dob": dob,
         "gender": gender,
         "height": height,

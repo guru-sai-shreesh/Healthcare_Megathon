@@ -16,10 +16,11 @@ import 'package:swasthya_gram/service/linkup_provider.dart';
 File file = File("your initial file");
 
 class LinkUp extends StatefulWidget {
-  const LinkUp({Key? key}) : super(key: key);
+  final String aadhar;
+  const LinkUp({Key? key, required this.aadhar}) : super(key: key);
 
   @override
-  _LinkUpState createState() => _LinkUpState();
+  _LinkUpState createState() => _LinkUpState(aadhar);
 }
 
 class _LinkUpState extends State<LinkUp> {
@@ -36,6 +37,9 @@ class _LinkUpState extends State<LinkUp> {
     dateInput.text = ""; //set the initial value of text field
     super.initState();
   }
+
+  final String aadhar;
+  _LinkUpState(this.aadhar);
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +102,7 @@ class _LinkUpState extends State<LinkUp> {
                             height: 47,
                             width: MediaQuery.of(context).size.width * 0.85,
                             child: TextField(
+                              controller: name,
                               cursorHeight: 18,
                               cursorColor: AppColors.primaryColor,
                               style: GoogleFonts.openSans(
@@ -668,7 +673,7 @@ class _LinkUpState extends State<LinkUp> {
             onPressed: () async {
               AddPatient patient = AddPatient(
                   name: name.text,
-                  aadhaarNo: aadhar.text,
+                  aadhaarno: aadhar,
                   dob: dateInput.text,
                   gender: gender.text,
                   height: int.parse(heightFeet.text),
