@@ -29,7 +29,7 @@ class RadialProgress extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: steps_left.toString() + "/30",
+                  text: steps_left.toString() + "% people",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
@@ -38,7 +38,7 @@ class RadialProgress extends StatelessWidget {
                 ),
                 TextSpan(text: "\n"),
                 TextSpan(
-                  text: "Tasks left",
+                  text: "are healthy",
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w500,

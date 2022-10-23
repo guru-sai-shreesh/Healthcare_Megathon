@@ -129,7 +129,7 @@ class _AadhaarFetchState extends State<AadhaarFetch> {
                 Padding(
                   padding: const EdgeInsets.only(left: 5, bottom: 5),
                   child: Text(
-                    "NAME",
+                    "Name",
                     style: GoogleFonts.openSans(
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
@@ -190,13 +190,7 @@ class _AadhaarFetchState extends State<AadhaarFetch> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  gradient: LinearGradient(
-                    colors: <Color>[
-                      Color(0xFF0D47A1),
-                      Color(0xFF1976D2),
-                      Color(0xFF42A5F5),
-                    ],
-                  ),
+                  color: AppColors.cardcolor,
                 ),
                 margin: EdgeInsets.only(left: 0, right: 0, bottom: 10, top: 5),
                 width: MediaQuery.of(context).size.width * 0.85,

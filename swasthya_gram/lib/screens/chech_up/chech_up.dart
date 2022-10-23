@@ -12,6 +12,7 @@ import 'package:swasthya_gram/controllers/checkup_controllers.dart';
 import 'package:swasthya_gram/model/colors.dart';
 import 'package:swasthya_gram/screens/chech_up/lhv_req.dart';
 import 'package:swasthya_gram/screens/chech_up/measure_bpm.dart';
+import 'package:swasthya_gram/screens/link_up/aaddhar_linkup.dart';
 
 File file = File("your initial file");
 
@@ -23,7 +24,8 @@ class CheckUp extends StatefulWidget {
 }
 
 class _CheckUpState extends State<CheckUp> {
-  final CheckUpController checkUpController = Get.put(CheckUpController());
+  final CheckUpController checkUpController =
+      Get.put(CheckUpController(aadhar.text));
 
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
@@ -92,7 +94,7 @@ class _CheckUpState extends State<CheckUp> {
                               padding:
                                   const EdgeInsets.only(left: 5, bottom: 5),
                               child: Text(
-                                checkUpController.checkup.name,
+                                "Name",
                                 style: GoogleFonts.openSans(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -127,7 +129,7 @@ class _CheckUpState extends State<CheckUp> {
                                     fontWeight: FontWeight.w700,
                                     color: Colors.grey,
                                   ),
-                                  hintText: 'Enter First name',
+                                  hintText: checkUpController.checkup.name,
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                     borderSide: const BorderSide(
@@ -140,6 +142,7 @@ class _CheckUpState extends State<CheckUp> {
                             ),
                           ],
                         ),
+
                         const SizedBox(
                           height: 15,
                         ),
@@ -150,65 +153,7 @@ class _CheckUpState extends State<CheckUp> {
                               padding:
                                   const EdgeInsets.only(left: 5, bottom: 5),
                               child: Text(
-                                "LAST NAME",
-                                style: GoogleFonts.openSans(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 47,
-                              width: MediaQuery.of(context).size.width * 0.85,
-                              child: TextField(
-                                readOnly: true,
-                                cursorHeight: 18,
-                                cursorColor: AppColors.primaryColor,
-                                style: GoogleFonts.openSans(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black,
-                                ),
-                                decoration: InputDecoration(
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    borderSide: const BorderSide(
-                                      color: Colors.grey,
-                                      width: 2,
-                                    ),
-                                  ),
-                                  hintStyle: GoogleFonts.openSans(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.grey,
-                                  ),
-                                  hintText: 'Enter Last name',
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: const BorderSide(
-                                      color: Colors.grey,
-                                      width: 1,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 5, bottom: 5),
-                              child: Text(
-                                checkUpController.checkup.dob.toString(),
+                                "Date",
                                 style: GoogleFonts.openSans(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -245,7 +190,9 @@ class _CheckUpState extends State<CheckUp> {
                                     fontWeight: FontWeight.w700,
                                     color: Colors.grey,
                                   ),
-                                  hintText: 'Choose a date',
+                                  hintText: checkUpController.checkup.dob
+                                      .toString()
+                                      .substring(0, 10),
                                   suffixIcon: Icon(
                                     Icons.arrow_drop_down_rounded,
                                     color: Colors.black,
@@ -273,7 +220,7 @@ class _CheckUpState extends State<CheckUp> {
                               padding:
                                   const EdgeInsets.only(left: 5, bottom: 5),
                               child: Text(
-                                checkUpController.checkup.gender,
+                                "Gender",
                                 style: GoogleFonts.openSans(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -314,7 +261,7 @@ class _CheckUpState extends State<CheckUp> {
                                     fontWeight: FontWeight.w700,
                                     color: Colors.grey,
                                   ),
-                                  hintText: 'Select Gender',
+                                  hintText: checkUpController.checkup.gender,
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10.0)),
@@ -336,7 +283,7 @@ class _CheckUpState extends State<CheckUp> {
                               padding:
                                   const EdgeInsets.only(left: 20, bottom: 5),
                               child: Text(
-                                checkUpController.checkup.height.toString(),
+                                "Height",
                                 style: GoogleFonts.openSans(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -379,7 +326,12 @@ class _CheckUpState extends State<CheckUp> {
                                           fontWeight: FontWeight.w700,
                                           color: Colors.grey,
                                         ),
-                                        hintText: 'Feet',
+                                        hintText:
+                                            (checkUpController.checkup.height /
+                                                        12)
+                                                    .floor()
+                                                    .toString() +
+                                                " Feet",
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
@@ -419,7 +371,11 @@ class _CheckUpState extends State<CheckUp> {
                                           fontWeight: FontWeight.w700,
                                           color: Colors.grey,
                                         ),
-                                        hintText: 'Inches',
+                                        hintText:
+                                            (checkUpController.checkup.height %
+                                                        12)
+                                                    .toString() +
+                                                ' Inches',
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(10.0),
@@ -446,7 +402,7 @@ class _CheckUpState extends State<CheckUp> {
                               padding:
                                   const EdgeInsets.only(left: 5, bottom: 5),
                               child: Text(
-                                checkUpController.checkup.weight.toString(),
+                                "Weight",
                                 style: GoogleFonts.openSans(
                                   fontSize: 13,
                                   fontWeight: FontWeight.w700,
@@ -480,7 +436,9 @@ class _CheckUpState extends State<CheckUp> {
                                     fontWeight: FontWeight.w700,
                                     color: Colors.grey,
                                   ),
-                                  hintText: 'Kilograms',
+                                  hintText: checkUpController.checkup.weight
+                                          .toString() +
+                                      ' Kilograms',
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                     borderSide: const BorderSide(
