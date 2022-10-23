@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:swasthya_gram/model/colors.dart';
 import 'package:swasthya_gram/screens/chech_up/chech_up.dart';
 import 'package:swasthya_gram/screens/chech_up/measure_bpm.dart';
+import 'package:swasthya_gram/screens/link_up/aaddhar_linkup.dart';
 
 File file = File("your initial file");
 
@@ -85,6 +86,7 @@ class _AadhaarFetchState extends State<AadhaarFetch> {
                   height: 47,
                   width: MediaQuery.of(context).size.width * 0.85,
                   child: TextField(
+                    controller: aadhar,
                     cursorHeight: 18,
                     cursorColor: AppColors.primaryColor,
                     style: GoogleFonts.openSans(

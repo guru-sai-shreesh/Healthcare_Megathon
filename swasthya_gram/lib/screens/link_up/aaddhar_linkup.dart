@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:rounded_modal/rounded_modal.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:swasthya_gram/controllers/checkup_controllers.dart';
 import 'package:swasthya_gram/model/colors.dart';
 import 'package:swasthya_gram/screens/chech_up/chech_up.dart';
 import 'package:swasthya_gram/screens/link_up/link_up.dart';
