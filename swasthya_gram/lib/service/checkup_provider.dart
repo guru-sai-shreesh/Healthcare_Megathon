@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:swasthya_gram/screens/link_up/aaddhar_linkup.dart';
 
 class CheckUpProvider {
-  var url = "https://387e-14-139-82-6.in.ngrok.io/patients/" + aadhar.text;
+  var url = "https://d7e6-14-139-82-6.in.ngrok.io/patients/" + aadhar.text;
 
   loadDataFromApi() async {
     // url += aadhar;

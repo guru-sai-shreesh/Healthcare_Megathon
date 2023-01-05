@@ -5,7 +5,7 @@ import 'package:swasthya_gram/screens/chech_up/chech_up.dart';
 import 'package:http/http.dart' as http;
 
 class LinkUpProvider {
-  var url = 'https://387e-14-139-82-6.in.ngrok.io/patients';
+  var url = 'https://d7e6-14-139-82-6.in.ngrok.io/patients';
 
   setDatatoApi(AddPatient patient) async {
     http.Response result = await http.post(
